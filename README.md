@@ -1,8 +1,8 @@
-для установки создаем в папке с jar application.properties файл фида(
+ Для установки создаем в папке с jar application.properties файл вида:(
 db.driver=org.postgresql.Driver
 db.username=root
 db.password=root
-db.url=jdbc:postgresql://localhost/dbname
+db.url=Data/base/url
 hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 hibernate.show_sql=true
 entitymanager.packagesToScan=com.example.restfulltest
@@ -10,9 +10,7 @@ management.endpoints.web.exposure.include=*
 server.port=80
 )
 устанавливаем базу данных и используем 
-скрипты для бд(BEGIN;
-
-
+скрипты для бд:(BEGIN;
 CREATE TABLE IF NOT EXISTS public.log
 (
     log_id integer NOT NULL DEFAULT nextval('"Log_log_id_seq"'::regclass),
