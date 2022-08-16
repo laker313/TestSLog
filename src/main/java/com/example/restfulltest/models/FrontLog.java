@@ -12,6 +12,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Setter
 @Getter
@@ -20,6 +22,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class FrontLog implements Serializable {
+
     @Column(name = "log_id")
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -33,16 +36,17 @@ public class FrontLog implements Serializable {
     @NotNull
     @Column(name = "log_level",nullable = false)
     String level;
+
     @NotNull
     @Column(name = "log_time",nullable = false)
-    Timestamp timestamp;
+    Timestamp time;
     @JsonCreator
     public FrontLog(@JsonProperty("message")String message, @JsonProperty("type")String type,
-                    @JsonProperty("level")String level,  @JsonProperty("time")Long timestamp) throws Exception {
+                    @JsonProperty("level")String level,  @JsonProperty("time")Timestamp  timestamp) throws Exception {
         this.message = message;
         this.type = type;
         this.level = level;
-        this.timestamp = new Timestamp(timestamp);
+        this.time = timestamp;
     }
 
     @Override
@@ -52,7 +56,7 @@ public class FrontLog implements Serializable {
                 ", message='" + message + '\'' +
                 ", type='" + type + '\'' +
                 ", level='" + level + '\'' +
-                ", timestamp=" + timestamp +
+                ", timestamp=" + time +
                 '}';
     }
 }

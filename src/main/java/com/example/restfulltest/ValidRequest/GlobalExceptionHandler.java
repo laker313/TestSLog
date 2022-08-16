@@ -16,6 +16,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex, HttpHeaders headers,
             HttpStatus status, WebRequest request) {
+        System.out.println(request.toString());
         return new ResponseEntity<>("Json not valid", HttpStatus.BAD_REQUEST);
     }
 

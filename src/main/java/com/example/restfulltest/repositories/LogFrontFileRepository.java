@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 import java.io.*;
 
 @Repository
-public class LogFrontFileRepository implements LogRepositoryInterface<FrontLog> {
+public class LogFrontFileRepository  {
     private final String FILE_LOG_NAME = "FrontLog.txt";
-    @Override
+
     public Integer save(FrontLog frontLog) throws Exception {
         PrintWriter out = null;
         try {
@@ -24,15 +24,4 @@ public class LogFrontFileRepository implements LogRepositoryInterface<FrontLog> 
         return frontLog.getId();
     }
 
-
-
-    @Override
-    public FrontLog search(Integer id) {
-        return null;
-    }
-
-    @Override
-    public FrontLog delete(Integer id) {
-        return null;
-    }
 }
