@@ -1,5 +1,3 @@
-
-END;)
 для установки создаем в папке с jar application.properties файл фида(
 db.driver=org.postgresql.Driver
 db.username=root
@@ -24,4 +22,5 @@ CREATE TABLE IF NOT EXISTS public.log
     log_time timestamp without time zone,
     CONSTRAINT log_pk PRIMARY KEY (log_id)
 );
+END;)
 запускаем jar
